@@ -5,8 +5,8 @@
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>geogebra_classic</id>
     <version>6.0.546.0</version>
-    <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
-    <owners>Guillaume Ferry, Nicolas Rogier</owners>
+    <packageSourceUrl>https://github.com/guillaume-ferry/geogebra-classic</packageSourceUrl>
+    <owners>Guillaume Ferry, Nicolas Rogier Université de Lorraine</owners>
     <!-- ============================== -->
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
