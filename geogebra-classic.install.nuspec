@@ -11,7 +11,7 @@
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <title>GeoGebra Classic</title>
-    <authors>Guillaume Ferry / GFE</authors>
+    <authors>GeoGebra</authors>
     <projectUrl>http://www.geogebra.org</projectUrl>
     <iconUrl>https://rawcdn.githack.com/guillaume-ferry/geogebra-classic/57f0ecc378dff7c6e765d62b91f8537a0e10d7b4/220px-Geogebra.svg.png</iconUrl>
     <licenseUrl>https://www.geogebra.org/license</licenseUrl>
