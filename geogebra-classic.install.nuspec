@@ -24,7 +24,7 @@
 ### What is GeoGebra?
 
 GeoGebra is dynamic mathematics software for all levels of education that brings together geometry, algebra, spreadsheets, graphing, statistics and calculus in one easy-to-use package. GeoGebra is a rapidly expanding community of millions of users located in just about every country. GeoGebra has become the leading provider of dynamic mathematics software, supporting science, technology, engineering and mathematics (STEM) education and innovations in teaching and learning worldwide.
-###Quick Facts
+### Quick Facts
 - Geometry, Algebra and Spreadsheet are connected and fully dynamic
 - Easy-to-use interface, yet many powerful features
 - Authoring tool to create interactive learning resources as web pages
@@ -44,7 +44,7 @@ GeoGebra est un logiciel de math√©matiques dynamiques, pour tous les niveaux d'√
     <docsUrl>https://wiki.geogebra.org/en/Manual</docsUrl>
     <mailingListUrl>https://help.geogebra.org</mailingListUrl>
     <bugTrackerUrl>https://help.geogebra.org/bugs</bugTrackerUrl>
-    <!-- =============================== -->      
+    <!-- =============================== -->
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
