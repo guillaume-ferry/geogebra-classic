@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>geogebra-classic.install</id>
-    <version>6.0.573.0</version>
+    <version>6.0.574.0</version>
     <packageSourceUrl>https://github.com/guillaume-ferry/geogebra-classic</packageSourceUrl>
     <owners>Guillaume Ferry, Nicolas Rogier - Université de Lorraine</owners>
     <!-- ============================== -->
@@ -20,8 +20,7 @@
     <copyright>© 2019 GeoGebra</copyright>
     <tags>geogebra6 geogebra algebra graphics mathematics</tags>
     <summary>Graph functions, investigate equations, and plot data with this free graphing app.</summary>
-    <description>
-### What is GeoGebra?
+    <description><![CDATA[### What is GeoGebra?
 
 GeoGebra is dynamic mathematics software for all levels of education that brings together geometry, algebra, spreadsheets, graphing, statistics and calculus in one easy-to-use package. GeoGebra is a rapidly expanding community of millions of users located in just about every country. GeoGebra has become the leading provider of dynamic mathematics software, supporting science, technology, engineering and mathematics (STEM) education and innovations in teaching and learning worldwide.
 ### Quick Facts
@@ -40,7 +39,7 @@ GeoGebra est un logiciel de mathématiques dynamiques, pour tous les niveaux d'�
 - Outil de création pour réaliser des ressources d'apprentissage interactives sous forme de pages Web
 - Disponible en de nombreuses langues pour nos millions d'utilisateurs à travers le monde
 - Logiciel Open source librement utilisable par des utilisateurs non commerciaux
-    </description>
+]]></description>
     <docsUrl>https://wiki.geogebra.org/en/Manual</docsUrl>
     <mailingListUrl>https://help.geogebra.org</mailingListUrl>
     <bugTrackerUrl>https://help.geogebra.org/bugs</bugTrackerUrl>
