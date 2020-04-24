@@ -4,9 +4,9 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>geogebra-classic.install</id>
-    <version>6.0.574.0</version>
+    <version>6.0.578.0</version>
     <packageSourceUrl>https://github.com/guillaume-ferry/geogebra-classic</packageSourceUrl>
-    <owners>Guillaume Ferry, Nicolas Rogier - Université de Lorraine</owners>
+    <owners>gfe, overage</owners>
     <!-- ============================== -->
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
