@@ -7,7 +7,7 @@ $releases = 'https://download.geogebra.org/installers/6.0'
 function global:au_SearchReplace {
    @{
         "tools\chocolateyInstall.ps1" = @{
-            "(^[$]url\s*=\s*)('.*')"          = "`$1'$($Latest.URL)'"
+            "(^[$]url\s*=\s*)('.*')"          = "`$1'$($Latest.URL32)'"
             "(^[$]version\s*=\s*)('.*')"      = "`$1'$($Latest.Version)'"
             "(^\s*checksum\s*=\s*)('.*')"     = "`$1'$($Latest.Checksum32)'"
             "(^\s*checksumType\s*=\s*)('.*')" = "`$1'$($Latest.ChecksumType32)'"
@@ -23,9 +23,9 @@ function global:au_GetLatest {
 
     return @{
         Version = $version
-        URL = "$releases/$url"
+        URL32 = "$releases/$url"
     }
 
 }
 
-update -ChecksumFor 32 -NoCheckChocoVersion
+update -ChecksumFor 32
