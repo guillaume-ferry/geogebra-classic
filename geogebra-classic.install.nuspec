@@ -17,6 +17,7 @@
     <licenseUrl>https://www.geogebra.org/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectSourceUrl>https://dev.geogebra.org/trac</projectSourceUrl>
+    <packageSourceUrl>https://github.com/guillaume-ferry/geogebra-classic</packageSourceUrl>
     <copyright>© 2019 GeoGebra</copyright>
     <tags>geogebra6 geogebra algebra graphics mathematics</tags>
     <summary>Graph functions, investigate equations, and plot data with this free graphing app.</summary>
