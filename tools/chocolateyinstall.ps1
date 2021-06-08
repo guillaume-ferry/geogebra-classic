@@ -1,13 +1,13 @@
 ﻿$ErrorActionPreference = 'Stop'
-$url        = 'https://download.geogebra.org/installers/6.0/GeoGebra-Windows-Installer-6-0-639-0.msi'
-$version    = [version]'6.0.639.0'
+$url        = 'https://download.geogebra.org/installers/6.0/GeoGebra-Windows-Installer-6-0-640-0.msi'
+$version    = [version]'6.0.640.0'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   fileType      = 'MSI'
   url           = $url
   softwareName  = 'GeoGebra Classic*'
-  checksum      = '1953f9f9b10acd96e13426583f036f52ff062c34cf14406fd429cd7a3681980f'
+  checksum      = 'DCBCE57FB4369FCB98CE2736ACE94C4F8B78AFEC402A9ECAAEF6EE32B544036C'
   checksumType  = 'sha256'
   silentArgs    = "ALLUSERS=2 /qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
   validExitCodes= @(0, 3010, 1641)
@@ -20,22 +20,37 @@ Write-Output "Searching if the previous version exists..."
 if ($checkreg.Count -eq 0) {
     Write-Output 'No installed old version. Process to install Geogebra Classic.'
     # No version installed, process to install
-    Install-ChocolateyPackage @packageArgs
+    $ExecInstall = $true
 } elseif ($checkreg.count -ge 1) {
     $checkreg | ForEach-Object {
         if ($null -ne $_.PSChildName) {
             if ([version]$_.DisplayVersion -lt $version) {
                 Write-Output "Uninstalling Geogebra Classic previous version : $($_.DisplayVersion)"
-                $msiKey = $_.PSChildName
-                Start-ChocolateyProcessAsAdmin "/qn /norestart /X$msiKey" -exeToRun "msiexec.exe" -validExitCodes @(0, 1605, 3010)
 
+                $unInstallArgs = @{
+                    packageName   = $env:ChocolateyPackageName
+                    softwareName  = 'GeoGebra Classic*'
+                    fileType      = 'MSI'
+                    file = ''
+                    silentArgs    = "$($_.PSChildName) /qn /norestart"
+                    validExitCodes= @(0, 3010, 1605, 1614, 1641)
+                }
+                Uninstall-ChocolateyPackage @unInstallArgs
                 # Process to install
                 Write-Output "Installing new version of Geogebra Classic"
-                Install-ChocolateyPackage @packageArgs
+                $ExecInstall = $true
             } elseif (([version]$_.DisplayVersion -eq $version) -and ($env:ChocolateyForce)) {
                 Write-Output "Geogebra Classic $version already installed, but --force option is passed, download and install"
-                Install-ChocolateyPackage @packageArgs
+                $ExecInstall = $true
+            } else {
+                Write-Output "Newest version or same version of Geogebra Classic is already installed, skip install"
+                $ExecInstall = $false
             }
         }
     }
+}
+
+# Check if install is required
+if ($ExecInstall) {
+    Install-ChocolateyPackage @packageArgs
 }
