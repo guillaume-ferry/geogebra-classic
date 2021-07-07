@@ -1,16 +1,16 @@
 ﻿$ErrorActionPreference = 'Stop'
-$url        = 'https://download.geogebra.org/installers/6.0/GeoGebra-Windows-Installer-6-0-649-0.msi'
-$version    = [version]'6.0.649.0'
+$url = 'https://download.geogebra.org/installers/6.0/GeoGebra-Windows-Installer-6-0-651-0.msi'
+$version = [version]'6.0.651.0'
 
 $packageArgs = @{
-  packageName   = $env:ChocolateyPackageName
-  fileType      = 'MSI'
-  url           = $url
-  softwareName  = 'GeoGebra Classic*'
-  checksum      = '39a8ee73e62aa0f25f395330b30f5876faee8313cd2e3978626a2ab92f767578'
-  checksumType  = 'sha256'
-  silentArgs    = "ALLUSERS=2 /qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
-  validExitCodes= @(0, 3010, 1641)
+    packageName    = $env:ChocolateyPackageName
+    fileType       = 'MSI'
+    url            = $url
+    softwareName   = 'GeoGebra Classic*'
+    checksum       = '1bce503a920cfeb4ca9c1b7c8d2693891f5d1500382c48623369c6d870914697'
+    checksumType   = 'sha256'
+    silentArgs     = "ALLUSERS=2 /qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
+    validExitCodes = @(0, 3010, 1641)
 }
 
 #Uninstalls the previous version of Geogebra Classic if either version exists
@@ -28,12 +28,12 @@ if ($checkreg.Count -eq 0) {
                 Write-Output "Uninstalling Geogebra Classic previous version : $($_.DisplayVersion)"
 
                 $unInstallArgs = @{
-                    packageName   = $env:ChocolateyPackageName
-                    softwareName  = 'GeoGebra Classic*'
-                    fileType      = 'MSI'
-                    file = ''
-                    silentArgs    = "$($_.PSChildName) /qn /norestart"
-                    validExitCodes= @(0, 3010, 1605, 1614, 1641)
+                    packageName    = $env:ChocolateyPackageName
+                    softwareName   = 'GeoGebra Classic*'
+                    fileType       = 'MSI'
+                    file           = ''
+                    silentArgs     = "$($_.PSChildName) /qn /norestart"
+                    validExitCodes = @(0, 3010, 1605, 1614, 1641)
                 }
                 Uninstall-ChocolateyPackage @unInstallArgs
                 # Process to install
