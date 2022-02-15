@@ -28,12 +28,12 @@ if ($checkreg.Count -eq 0) {
                 Write-Output "Uninstalling Geogebra Classic previous version : $($_.DisplayVersion)"
 
                 $unInstallArgs = @{
-                    packageName   = $env:ChocolateyPackageName
-                    softwareName  = 'GeoGebra Classic*'
-                    fileType      = 'MSI'
-                    file = ''
-                    silentArgs    = "$($_.PSChildName) /qn /norestart"
-                    validExitCodes= @(0, 3010, 1605, 1614, 1641)
+                    packageName    = $env:ChocolateyPackageName
+                    softwareName   = 'GeoGebra Classic*'
+                    fileType       = 'MSI'
+                    file           = ''
+                    silentArgs     = "$($_.PSChildName) /qn /norestart"
+                    validExitCodes = @(0, 3010, 1605, 1614, 1641)
                 }
                 Uninstall-ChocolateyPackage @unInstallArgs
                 # Process to install
