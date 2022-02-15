@@ -1,20 +1,20 @@
 ﻿$ErrorActionPreference = 'Stop'
-$url        = 'https://download.geogebra.org/installers/6.0/GeoGebra-Windows-Installer-6-0-687-0.msi'
-$version    = [version]'6.0.687.0'
+$url = 'https://download.geogebra.org/installers/6.0/GeoGebra-Windows-Installer-6-0-688-0.msi'
+$version = [version]'6.0.688.0'
 
 $packageArgs = @{
-  packageName   = $env:ChocolateyPackageName
-  fileType      = 'MSI'
-  url           = $url
-  softwareName  = 'GeoGebra Classic*'
-  checksum      = '81673f1220d1f17e5b3b131d77e81cc7e8cb14ddb0f638a21e8a2d090b7bb559'
-  checksumType  = 'sha256'
-  silentArgs    = "ALLUSERS=2 /qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
-  validExitCodes= @(0, 3010, 1641)
+    packageName    = $env:ChocolateyPackageName
+    fileType       = 'MSI'
+    url            = $url
+    softwareName   = 'GeoGebra Classic*'
+    checksum       = 'c022c9378e206007fae0fdb3a61b1f774ed1a0551fc23ff4e56e8ee95f2b3a6a'
+    checksumType   = 'sha256'
+    silentArgs     = "ALLUSERS=2 /qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
+    validExitCodes = @(0, 3010, 1641)
 }
 
 #Uninstalls the previous version of Geogebra Classic if either version exists
-Write-Output "Searching if the previous version exists..."
+Write-Output 'Searching if the previous version exists...'
 [array]$checkreg = Get-UninstallRegistryKey -SoftwareName $packageArgs['softwareName']
 
 if ($checkreg.Count -eq 0) {
@@ -37,13 +37,13 @@ if ($checkreg.Count -eq 0) {
                 }
                 Uninstall-ChocolateyPackage @unInstallArgs
                 # Process to install
-                Write-Output "Installing new version of Geogebra Classic"
+                Write-Output 'Installing new version of Geogebra Classic'
                 $ExecInstall = $true
             } elseif (([version]$_.DisplayVersion -eq $version) -and ($env:ChocolateyForce)) {
                 Write-Output "Geogebra Classic $version already installed, but --force option is passed, download and install"
                 $ExecInstall = $true
             } else {
-                Write-Output "Newest version or same version of Geogebra Classic is already installed, skip install"
+                Write-Output 'Newest version or same version of Geogebra Classic is already installed, skip install'
                 $ExecInstall = $false
             }
         }
