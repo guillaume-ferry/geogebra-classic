@@ -1,13 +1,13 @@
 ﻿$ErrorActionPreference = 'Stop'
-$url        = 'https://download.geogebra.org/installers/6.0/GeoGebra-Windows-Installer-6-0-649-0.msi'
-$version    = [version]'6.0.649.0'
+$url        = 'https://download.geogebra.org/installers/6.0/GeoGebra-Windows-Installer-6-0-687-0.msi'
+$version    = [version]'6.0.687.0'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   fileType      = 'MSI'
   url           = $url
   softwareName  = 'GeoGebra Classic*'
-  checksum      = '39a8ee73e62aa0f25f395330b30f5876faee8313cd2e3978626a2ab92f767578'
+  checksum      = '81673f1220d1f17e5b3b131d77e81cc7e8cb14ddb0f638a21e8a2d090b7bb559'
   checksumType  = 'sha256'
   silentArgs    = "ALLUSERS=2 /qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
   validExitCodes= @(0, 3010, 1641)
